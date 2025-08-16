@@ -1,0 +1,14 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes woodGrainPan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 200px 200px;
+  }
+}
