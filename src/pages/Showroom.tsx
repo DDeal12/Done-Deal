@@ -1,270 +1,52 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Filter } from 'lucide-react';
+import { X } from 'lucide-react';
 
 const projects = [
-  // Kitchen
-  {
-    id: 1,
-    title: 'Luxury Kitchen Island',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit1.jpg',
-    
-  },
-  {
-    id: 2,
-    title: 'Modern Cabinets',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit2.jpg',
-    
-  },
-  {
-    id: 3,
-    title: 'Wine Display Shelf',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit3.jpg',
-   
-  },
-  {
-    id: 4,
-    title: 'Pantry Organiser',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit4.jpg',
-    
-  },
-  {
-    id: 5,
-    title: 'Breakfast Nook',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit5.jpg',
-    
-  },
-  { id: 6,
-    title: 'Kitchen Island',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit6.jpg',
-    
-  },
-  {
-    id: 7,
-    title: 'Kitchen Pantry',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit7.jpg',
-   
-  },
-  {
-    id: 8,
-    title: 'Kitchen Utensil Holder',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit8.jpg',
-    
-  },
-  {
-    id: 9,
-    title: 'Kitchen Spice Rack',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit9.jpg',
-   
-  },
-  {
-    id: 10,
-    title: 'Kitchen Counter Stools',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit10.jpg',
-    
-  },
-  {
-    id: 11,
-    title: 'Kitchen Island',
-    category: 'Kitchen',
-    image: '/images/kitchen/kit11.jpg',
-   
-  },
-  // TVstands (was Lounge)
-  {
-    id: 6,
-    title: 'Living Room Built-ins',
-    category: 'TVstands',
-    image: '/images/tvstands/tv1.jpg',
-   
-  },
-  {
-    id: 7,
-    title: 'Bookshelf Wall',
-    category: 'TVstands',
-    image: '/images/tvstands/tv2.jpg',
-   
-  },
-  {
-    id: 8,
-    title: 'Media Center',
-    category: 'TVstands',
-    image: '/images/tvstands/tv3.jpg',
-   
-  },
-  {
-    id: 9,
-    title: 'Corner Reading Nook',
-    category: 'TVstands',
-    image: '/images/tvstands/tv4.jpg',
-   
-  },
-  {
-    id: 10,
-    title: 'Decorative Panels',
-    category: 'TVstands',
-    image: '/images/tvstands/tv5.jpg',
-    
-  },
-  {
-    id: 11,
-    title: 'Lounge Coffee Table',
-    category: 'TVstands',
-    image: '/images/tvstands/tv6.jpg',
-   
-  },
-  {
-    id: 12,
-    title: 'Accent Chairs',
-    category: 'TVstands',
-    image: '/images/tvstands/tv7.jpg',
-    
-  },
-  {
-    id: 13,
-    title: 'Lounge Sofa',
-    category: 'TVstands',
-    image: '/images/tvstands/tv8.jpg',
-   
-  },
-  {
-    id: 14,
-    title: 'Lounge Side Table',
-    category: 'TVstands',
-    image: '/images/tvstands/tv9.jpg',
-   
-  },
-  {
-    id: 15,
-    title: 'Lounge TV Stand',
-    category: 'TVstands',
-    image: '/images/tvstands/tv10.jpg',
-    
-  },
-  {
-    id: 16,
-    title: 'Lounge Armchair',
-    category: 'TVstands',
-    image: '/images/tvstands/tv11.jpg',
-   
-  },
-  {
-    id: 17,
-    title: 'Lounge Coffee Table',
-    category: 'TVstands',
-    image: '/images/tvstands/tv12.jpg',
-    
-  },
-  // Wardrobes (was Custom Furniture)
-  {
-    id: 11,
-    title: 'Executive Desk',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war1.jpg',
-   
-  },
-  {
-    id: 12,
-    title: 'Dining Table Set',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war2.jpg',
-    
-  },
-  {
-    id: 13,
-    title: 'Luxury Wardrobe',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war3.jpg',
-    
-  },
-  {
-    id: 14,
-    title: 'Coffee Table',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war4.jpg',
-   
-  },
-  {
-    id: 15,
-    title: 'Sideboard Cabinet',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war5.jpg',
-    
-  },
-  {
-    id: 16,
-    title: 'Custom Bookshelves',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war6.jpg',
-   
-  },
-  {
-    id: 17,
-    title: 'Luxury Wardrobe',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war7.jpg',
-    
-  },
-  {
-    id: 18,
-    title: 'Custom Closet System',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war8.jpg',
-   
-  },
-  {
-    id: 19,
-    title: 'Luxury Wardrobe',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war9.jpg',
-    
-  },
-  {
-    id: 20,
-    title: 'Custom Wardrobe',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war10.jpg',
-    
-  },
-  {
-    id: 21,
-    title: 'Custom Wardrobe',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war11.jpg',
-   
-  },
-  {
-    id: 22,
-    title: 'Custom Wardrobe',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war12.jpg',
-    
-  },
-  {
-    id: 23,
-    title: 'Custom Wardrobe',
-    category: 'Wardrobes',
-    image: '/images/wardrobes/war13.jpg',
-   
-  },
-  
+  { id: 1, category: 'Kitchen', image: '/images/kitchen/kit1.jpg' },
+  { id: 2, category: 'Kitchen', image: '/images/kitchen/kit2.jpg' },
+  { id: 3, category: 'Kitchen', image: '/images/kitchen/kit3.jpg' },
+  { id: 4, category: 'Kitchen', image: '/images/kitchen/kit4.jpg' },
+  { id: 5, category: 'Kitchen', image: '/images/kitchen/kit5.jpg' },
+  { id: 6, category: 'Kitchen', image: '/images/kitchen/kit6.jpg' },
+  { id: 7, category: 'Kitchen', image: '/images/kitchen/kit7.jpg' },
+  { id: 8, category: 'Kitchen', image: '/images/kitchen/kit8.jpg' },
+  { id: 9, category: 'Kitchen', image: '/images/kitchen/kit9.jpg' },
+  { id: 10, category: 'Kitchen', image: '/images/kitchen/kit10.jpg' },
+  { id: 11, category: 'Kitchen', image: '/images/kitchen/kit11.jpg' },
+  // TVstands
+  { id: 12, category: 'TVstands', image: '/images/tvstands/tv1.jpg' },
+  { id: 13, category: 'TVstands', image: '/images/tvstands/tv2.jpg' },
+  { id: 14, category: 'TVstands', image: '/images/tvstands/tv3.jpg' },
+  { id: 15, category: 'TVstands', image: '/images/tvstands/tv4.jpg' },
+  { id: 16, category: 'TVstands', image: '/images/tvstands/tv5.jpg' },
+  { id: 17, category: 'TVstands', image: '/images/tvstands/tv6.jpg' },
+  { id: 18, category: 'TVstands', image: '/images/tvstands/tv7.jpg' },
+  { id: 19, category: 'TVstands', image: '/images/tvstands/tv8.jpg' },
+  { id: 20, category: 'TVstands', image: '/images/tvstands/tv9.jpg' },
+  { id: 21, category: 'TVstands', image: '/images/tvstands/tv10.jpg' },
+  { id: 22, category: 'TVstands', image: '/images/tvstands/tv11.jpg' },
+  { id: 23, category: 'TVstands', image: '/images/tvstands/tv12.jpg' },
+  // Wardrobes
+  { id: 24, category: 'Wardrobes', image: '/images/wardrobes/war1.jpg' },
+  { id: 25, category: 'Wardrobes', image: '/images/wardrobes/war2.jpg' },
+  { id: 26, category: 'Wardrobes', image: '/images/wardrobes/war3.jpg' },
+  { id: 27, category: 'Wardrobes', image: '/images/wardrobes/war4.jpg' },
+  { id: 28, category: 'Wardrobes', image: '/images/wardrobes/war5.jpg' },
+  { id: 29, category: 'Wardrobes', image: '/images/wardrobes/war6.jpg' },
+  { id: 30, category: 'Wardrobes', image: '/images/wardrobes/war7.jpg' },
+  { id: 31, category: 'Wardrobes', image: '/images/wardrobes/war8.jpg' },
+  { id: 32, category: 'Wardrobes', image: '/images/wardrobes/war9.jpg' },
+  { id: 33, category: 'Wardrobes', image: '/images/wardrobes/war10.jpg' },
+  { id: 34, category: 'Wardrobes', image: '/images/wardrobes/war11.jpg' },
+  { id: 35, category: 'Wardrobes', image: '/images/wardrobes/war12.jpg' },
+  { id: 36, category: 'Wardrobes', image: '/images/wardrobes/war13.jpg' },
 ];
 
-const categories = ['All', 'Kitchen', 'TVstands', 'Wardrobes', ];
+const categories = ['All', 'Kitchen', 'TVstands', 'Wardrobes'];
 
 type Project = {
   id: number;
-  title: string;
   category: string;
   image: string;
 };
@@ -341,13 +123,11 @@ const Showroom = () => {
               >
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt=""
                   className="w-full object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-1">{project.title}</h3>
-                  
-                </div>
+                {/* Removed star ratings */}
+                <div className="p-6"></div>
               </motion.div>
             ))}
           </AnimatePresence>
@@ -379,20 +159,15 @@ const Showroom = () => {
               </button>
               <img
                 src={selectedProject.image}
-                alt={selectedProject.title}
+                alt=""
                 className="w-full h-96 object-cover rounded-t-2xl"
               />
               <div className="p-8">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-3xl font-bold text-white">{selectedProject.title}</h2>
+                  {/* Removed star ratings in modal */}
                   <span className="bg-gray-100 text-black px-3 py-1 rounded-full text-sm font-medium shadow">{selectedProject.category}</span>
                 </div>
-                
-               
-
-                <div className="bg-[#232323] p-4 rounded-lg border-l-4 border-gray-300">
-                
-                </div>
+                <div className="bg-[#232323] p-4 rounded-lg border-l-4 border-gray-300"></div>
               </div>
             </motion.div>
           </motion.div>

@@ -56,7 +56,7 @@ export default function LandingPage() {
 
 	return (
 		<div className="bg-gradient-to-b from-[#0f0f0f] to-[#1a1a1a] text-white relative overflow-hidden">
-			{/* Inline shimmer styles */}
+			{/* Inline shimmer + glow styles */}
 			<style>{`
         @keyframes shimmer {
           0% { background-position: -200% 0; }
@@ -86,63 +86,78 @@ export default function LandingPage() {
       `}</style>
 
 			{/* HERO */}
-			<section className="relative min-h-[90vh] flex items-center">
-				<div className="absolute inset-0 bg-[#0f0f0f] z-0 clip-diagonal" />
-				<div className="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10">
-					{/* Left Side (Text) */}
-					<div className="flex-1 text-left space-y-6">
-						<motion.h1
-							className="text-5xl md:text-6xl font-bold leading-tight shimmer-text"
-							initial={{ opacity: 0, y: 30 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.8, delay: 0.1 }}
-						>
-							Done Deal Interiors
-						</motion.h1>
-						<motion.p
-							className="text-lg text-gray-300 max-w-md"
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ delay: 0.3, duration: 0.8 }}
-						>
-							Crafting premium woodwork for kitchens, living spaces, and bedrooms
-							— blending traditional skills with modern design.
-						</motion.p>
-						<motion.div
-							className="flex gap-4"
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ delay: 0.5, duration: 0.8 }}
-						>
-							<Link
-								to="/showroom"
-								className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition"
-							>
-								Go to Showroom
-							</Link>
-							<Link
-								to="/consultation"
-								className="px-6 py-3 border border-white font-medium rounded-lg hover:bg-white hover:text-black transition"
-							>
-								Book Consultation
-							</Link>
-						</motion.div>
-					</div>
+			<section className="relative min-h-[90vh] flex items-center justify-center text-center overflow-hidden">
+				{/* Animated gradient background */}
+				<div className="absolute inset-0 hero-gradient animate-hero-gradient"></div>
+				<div className="absolute inset-0 bg-black/40"></div>
 
-					{/* Right Side (Image) */}
-					<motion.div
-						className="flex-1 flex justify-center items-center"
-						initial={{ opacity: 0, x: 50 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ delay: 0.4, duration: 0.8 }}
+				{/* Hero Content */}
+				<div className="relative z-10 px-6 max-w-3xl mx-auto space-y-6">
+					{/* Logo */}
+					<img
+						src="/images/donedeal1.png"
+						alt="Done Deal Logo"
+						className="mx-auto w-24 md:w-32 mb-4"
+					/>
+
+					{/* Title */}
+					<motion.h1
+						className="text-4xl md:text-6xl font-bold leading-tight shimmer-text"
+						initial={{ opacity: 0, y: 30 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.8 }}
 					>
-						<img
-							src="/images/2.jpeg"
-							alt="Carpentry Showcase"
-							className="rounded-xl shadow-lg border border-gray-700"
-						/>
+						Done Deal Interiors
+					</motion.h1>
+
+					{/* Subtitle */}
+					<motion.p
+						className="text-lg md:text-xl text-gray-200"
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.3, duration: 0.8 }}
+					>
+						Crafting premium woodwork for kitchens, living spaces, and bedrooms —
+						blending traditional skills with modern design.
+					</motion.p>
+
+					{/* Buttons */}
+					<motion.div
+						className="flex flex-col sm:flex-row gap-4 justify-center"
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 0.5, duration: 0.8 }}
+					>
+						<Link
+							to="/showroom"
+							className="px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-gray-200 transition"
+						>
+							Go to Showroom
+						</Link>
+						<Link
+							to="/consultation"
+							className="px-6 py-3 border border-white font-medium rounded-lg hover:bg-white hover:text-black transition"
+						>
+							Book Consultation
+						</Link>
 					</motion.div>
 				</div>
+
+				{/* Scoped CSS for Hero only */}
+				<style>{`
+					@keyframes hero-gradient-animation {
+						0% { background-position: 0% 50%; }
+						50% { background-position: 100% 50%; }
+						100% { background-position: 0% 50%; }
+					}
+					.hero-gradient {
+						background: linear-gradient(-45deg, #1a1a1a, #232323 30%, #374151 60%, #18181b 100%);
+						background-size: 300% 300%;
+					}
+					.animate-hero-gradient {
+						animation: hero-gradient-animation 18s ease infinite;
+					}
+				`}</style>
 			</section>
 
 			{/* MAIN SECTIONS */}
